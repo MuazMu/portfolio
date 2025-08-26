@@ -1,10 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ProjectModal } from "./project-modal"
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react"
 
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<any>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
 
   const projects = [
     {
@@ -46,6 +49,47 @@ export function ProjectsSection() {
       ],
       technologies: "HTML, CSS, JavaScript, PHP, MySQL",
       link: "https://www.baselineplc.com/",
+    },
+    {
+      title: "Roasted Coffee ecommerce website",
+      description: "Premium coffee ecommerce platform featuring single-origin beans and signature blends",
+      mainImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tk_prof-bXNm3wRPq0vZsog2Bv6FWqofWPeCma.png",
+      images: [
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tk_prof-bXNm3wRPq0vZsog2Bv6FWqofWPeCma.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tk_pro2-86FV2QUBJP1XEvUHeMmJYGGvddIQqY.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tk_pro_3-L0FBr1px1AE8I7dqiA14MBNb3a1W1s.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tk_pro4-Yj2s4IQiRfNUAyZitrugSeoE6yFybY.png",
+      ],
+      technologies: "React, Next.js, Stripe API, Node.js, MongoDB",
+      link: "https://v0-asalacoffee-clone-project.vercel.app/",
+    },
+    {
+      title: "Verified Business Leads",
+      description:
+        "B2B lead generation platform providing verified business leads for Turkey, Europe, and Arab markets",
+      mainImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nexapro1-CGsKvxwF9SoUiB61bAfqVHjoLrEFaY.png",
+      images: [
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nexapro1-CGsKvxwF9SoUiB61bAfqVHjoLrEFaY.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nexpro2-7BiFzYpso0tOJchdxTHCchtJO159e9.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nexapro3-60hzmTBRyv1ODEhI9AAwU5ESOdGDhg.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nexapro4-IpiTqAQccZl2eycYnHuYWErsHZANIf.png",
+      ],
+      technologies: "React, Next.js, Node.js, PostgreSQL, Lead APIs",
+      link: "https://nexa-leads.vercel.app/",
+    },
+    {
+      title: "İhlas Dormitory Website",
+      description:
+        "Turkish student dormitory website showcasing accommodation facilities, dining areas, and prayer facilities",
+      mainImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ihlapro-k5ddrcmJrkff89RrlEXDxpZ1e0Pj2o.png",
+      images: [
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ihlapro-k5ddrcmJrkff89RrlEXDxpZ1e0Pj2o.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ihlaspro2-VfNhz89kCB2hhxg7NVJ3AGjFhPj3s0.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ihlaspro3-RTv0pWSDOehbx5x2pwktrGRabIzgTF.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ihlaspro4-g3n98qlcnNsuW4QyCGtLLDISNIBhJX.png",
+      ],
+      technologies: "HTML, CSS, JavaScript, PHP, MySQL",
+      link: "https://ihlasyurt.vercel.app/",
     },
     {
       title: "GOJO",
@@ -101,12 +145,40 @@ export function ProjectsSection() {
     },
   ]
 
+  useEffect(() => {
+    if (!isPaused) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % projects.length)
+      }, 3000)
+      return () => clearInterval(interval)
+    }
+  }, [isPaused, projects.length])
+
   const openProjectModal = (project: any) => {
     setSelectedProject(project)
   }
 
   const closeModal = () => {
     setSelectedProject(null)
+  }
+
+  const nextProject = () => {
+    setCurrentIndex((prev) => (prev + 1) % projects.length)
+    setIsPaused(true)
+  }
+
+  const prevProject = () => {
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length)
+    setIsPaused(true)
+  }
+
+  const togglePause = () => {
+    setIsPaused(!isPaused)
+  }
+
+  const goToProject = (index: number) => {
+    setCurrentIndex(index)
+    setIsPaused(true)
   }
 
   return (
@@ -119,65 +191,111 @@ export function ProjectsSection() {
         <div className="w-16 h-1 bg-blue-500 mx-auto mb-12"></div>
 
         <div className="relative overflow-hidden">
-          <div className="flex animate-marquee-continuous space-x-8">
-            {/* First set of projects */}
-            {projects.map((project, index) => (
-              <div
-                key={`first-${index}`}
-                className="flex-shrink-0 w-80 bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm hover:bg-slate-800/50 transition-all duration-300 cursor-pointer"
-                onClick={() => openProjectModal(project)}
-              >
-                <div className="aspect-video mb-4 rounded-lg overflow-hidden">
-                  <img
-                    src={project.mainImage || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <h4 className="text-white text-xl font-semibold mb-2">{project.title}</h4>
-                <p className="text-slate-400 text-sm mb-3 line-clamp-2">{project.description}</p>
-                {project.link && project.link !== "#" && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:text-blue-300 text-sm underline"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {project.link}
-                  </a>
-                )}
-              </div>
+          <div className="flex justify-center items-center gap-4 mb-8">
+            <button
+              onClick={prevProject}
+              className="p-2 bg-slate-800/50 hover:bg-slate-700/50 rounded-full border border-slate-600 transition-colors"
+              aria-label="Previous project"
+            >
+              <ChevronLeft className="w-5 h-5 text-white" />
+            </button>
+
+            <button
+              onClick={togglePause}
+              className="p-2 bg-slate-800/50 hover:bg-slate-700/50 rounded-full border border-slate-600 transition-colors"
+              aria-label={isPaused ? "Play" : "Pause"}
+            >
+              {isPaused ? <Play className="w-5 h-5 text-white" /> : <Pause className="w-5 h-5 text-white" />}
+            </button>
+
+            <button
+              onClick={nextProject}
+              className="p-2 bg-slate-800/50 hover:bg-slate-700/50 rounded-full border border-slate-600 transition-colors"
+              aria-label="Next project"
+            >
+              <ChevronRight className="w-5 h-5 text-white" />
+            </button>
+          </div>
+
+          <div className="flex justify-center gap-2 mb-8">
+            {projects.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToProject(index)}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  index === currentIndex ? "bg-blue-500" : "bg-slate-600 hover:bg-slate-500"
+                }`}
+                aria-label={`Go to project ${index + 1}`}
+              />
             ))}
-            {/* Duplicate set for seamless loop */}
-            {projects.map((project, index) => (
-              <div
-                key={`second-${index}`}
-                className="flex-shrink-0 w-80 bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm hover:bg-slate-800/50 transition-all duration-300 cursor-pointer"
-                onClick={() => openProjectModal(project)}
-              >
-                <div className="aspect-video mb-4 rounded-lg overflow-hidden">
-                  <img
-                    src={project.mainImage || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
+          </div>
+
+          <div className="relative overflow-hidden">
+            <div
+              className={`flex space-x-8 transition-transform duration-500 ${
+                isPaused ? "" : "animate-marquee-continuous"
+              }`}
+              style={{
+                transform: `translateX(-${currentIndex * (320 + 32)}px)`,
+              }}
+            >
+              {projects.map((project, index) => (
+                <div
+                  key={`first-${index}`}
+                  className="flex-shrink-0 w-80 bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm hover:bg-slate-800/50 transition-all duration-300 cursor-pointer"
+                  onClick={() => openProjectModal(project)}
+                >
+                  <div className="aspect-video mb-4 rounded-lg overflow-hidden">
+                    <img
+                      src={project.mainImage || "/placeholder.svg"}
+                      alt={project.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <h4 className="text-white text-xl font-semibold mb-2">{project.title}</h4>
+                  <p className="text-slate-400 text-sm mb-3 line-clamp-2">{project.description}</p>
+                  {project.link && project.link !== "#" && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-400 hover:text-blue-300 text-sm underline"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {project.link}
+                    </a>
+                  )}
                 </div>
-                <h4 className="text-white text-xl font-semibold mb-2">{project.title}</h4>
-                <p className="text-slate-400 text-sm mb-3 line-clamp-2">{project.description}</p>
-                {project.link && project.link !== "#" && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:text-blue-300 text-sm underline"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {project.link}
-                  </a>
-                )}
-              </div>
-            ))}
+              ))}
+              {projects.map((project, index) => (
+                <div
+                  key={`second-${index}`}
+                  className="flex-shrink-0 w-80 bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm hover:bg-slate-800/50 transition-all duration-300 cursor-pointer"
+                  onClick={() => openProjectModal(project)}
+                >
+                  <div className="aspect-video mb-4 rounded-lg overflow-hidden">
+                    <img
+                      src={project.mainImage || "/placeholder.svg"}
+                      alt={project.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <h4 className="text-white text-xl font-semibold mb-2">{project.title}</h4>
+                  <p className="text-slate-400 text-sm mb-3 line-clamp-2">{project.description}</p>
+                  {project.link && project.link !== "#" && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-400 hover:text-blue-300 text-sm underline"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {project.link}
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

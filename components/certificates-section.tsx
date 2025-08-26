@@ -12,21 +12,21 @@ export function CertificatesSection() {
       title: "Certified in Cybersecurity",
       issuer: "ISC²",
       date: "2024-2027",
-      image: "/isc2-cybersecurity-certificate.png",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/isc2_cert-EE3vF6imEbktRlyyt8ibUUo6tPknrV.png",
     },
     {
       id: 2,
       title: "Cybersecurity Job Simulation - Malware Response",
-      issuer: "Forage",
+      issuer: "Forage/Telstra",
       date: "January 2025",
-      image: "/forage-malware-response-certificate.png",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/telstra_cert-Gg5paGrRioNGe9DYoS44B2XFXUBip0.png",
     },
     {
       id: 3,
       title: "Cybersecurity Job Simulation - Phishing",
-      issuer: "Forage",
+      issuer: "Forage/Mastercard",
       date: "January 2025",
-      image: "/forage-phishing-simulation-certificate.png",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cert_master-xIFMtLVvuaMHWD4ghJMVUBKN3WKhIk.png",
     },
   ]
 

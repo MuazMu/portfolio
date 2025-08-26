@@ -140,3 +140,29 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Adding continuous marquee animation for 360-degree rotation */
+@keyframes marquee-continuous {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-continuous {
+  animation: marquee-continuous 30s linear infinite;
+}
+
+.animate-marquee-continuous:hover {
+  animation-play-state: paused;
+}
+
+/* Adding line clamp utility for project descriptions */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

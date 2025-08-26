@@ -1,67 +1,87 @@
+"use client"
+
 import { Card } from "@/components/ui/card"
-import Image from "next/image"
+import { useState } from "react"
 
 export function CertificatesSection() {
+  const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null)
+
+  const certificates = [
+    {
+      id: 1,
+      title: "Certified in Cybersecurity",
+      issuer: "ISC²",
+      date: "2024-2027",
+      image: "/isc2-cybersecurity-certificate.png",
+    },
+    {
+      id: 2,
+      title: "Cybersecurity Job Simulation - Malware Response",
+      issuer: "Forage",
+      date: "January 2025",
+      image: "/forage-malware-response-certificate.png",
+    },
+    {
+      id: 3,
+      title: "Cybersecurity Job Simulation - Phishing",
+      issuer: "Forage",
+      date: "January 2025",
+      image: "/forage-phishing-simulation-certificate.png",
+    },
+  ]
+
   return (
-    <section id="certificates" className="px-8 py-16">
-      <div className="max-w-4xl">
-        <h2 className="text-3xl font-bold text-white mb-4">Certificates</h2>
-        <p className="text-slate-400 mb-8">
-          Check out some of my certificates, ranging from Web Development to AI Engineering.
-        </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card className="bg-slate-800/50 border-slate-700 p-4">
-            <div className="flex items-start space-x-4">
-              <div className="w-20 h-16 bg-slate-700 rounded overflow-hidden flex-shrink-0">
-                <Image
-                  src="/certificate-document-with-official-seal.png"
-                  alt="Web Development Certificate"
-                  width={80}
-                  height={64}
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex-1">
-                <h4 className="text-white font-medium mb-1">Full Stack Web Development</h4>
-                <p className="text-slate-400 text-sm">Meta • 2024</p>
-                <p className="text-slate-500 text-sm mt-2">React, Node.js, Database Design</p>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="bg-slate-800/50 border-slate-700 p-4">
-            <div className="flex items-start space-x-4">
-              <div className="w-20 h-16 bg-slate-700 rounded overflow-hidden flex-shrink-0">
-                <Image
-                  src="/professional-certificate-with-blue-header.png"
-                  alt="AI Engineering Certificate"
-                  width={80}
-                  height={64}
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex-1">
-                <h4 className="text-white font-medium mb-1">AI Engineering Specialization</h4>
-                <p className="text-slate-400 text-sm">Stanford • 2024</p>
-                <p className="text-slate-500 text-sm mt-2">Prompt Engineering, Context Engineering</p>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="bg-slate-800/50 border-slate-700 p-4">
-            <div className="flex items-start space-x-4">
-              <div className="w-20 h-16 bg-gradient-to-br from-green-500 to-blue-500 rounded flex items-center justify-center flex-shrink-0">
-                <span className="text-sm text-white font-bold">C++</span>
-              </div>
-              <div className="flex-1">
-                <h4 className="text-white font-medium mb-1">Advanced C++ Programming</h4>
-                <p className="text-slate-400 text-sm">MIT • 2023</p>
-                <p className="text-slate-500 text-sm mt-2">Systems Programming, Linux Development</p>
-              </div>
-            </div>
-          </Card>
+    <>
+      <section id="certificates" className="px-8 py-16">
+        <div className="max-w-4xl">
+          <h2 className="text-3xl font-bold text-white mb-4">Certificates</h2>
+          <p className="text-slate-400 mb-8">
+            Check out some of my certificates, ranging from Cybersecurity to Professional Development.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {certificates.map((cert) => (
+              <Card
+                key={cert.id}
+                className="bg-slate-800/50 border-slate-700 p-4 cursor-pointer hover:bg-slate-700/50 transition-colors"
+                onClick={() => setSelectedCertificate(cert.image)}
+              >
+                <div className="aspect-[4/3] mb-4 overflow-hidden rounded-lg">
+                  <img
+                    src={cert.image || "/placeholder.svg"}
+                    alt={cert.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h4 className="text-white font-medium mb-1 text-sm">{cert.title}</h4>
+                <p className="text-slate-400 text-xs">
+                  {cert.issuer} • {cert.date}
+                </p>
+              </Card>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {selectedCertificate && (
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedCertificate(null)}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] bg-white rounded-lg overflow-hidden">
+            <button
+              onClick={() => setSelectedCertificate(null)}
+              className="absolute top-4 right-4 z-10 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors"
+            >
+              ×
+            </button>
+            <img
+              src={selectedCertificate || "/placeholder.svg"}
+              alt="Certificate"
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </div>
+      )}
+    </>
   )
 }

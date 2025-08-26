@@ -8,17 +8,44 @@ export function ProjectsSection() {
 
   const projects = [
     {
-      title: "AI Lyrics Generation",
-      description: "AI-powered lyrics generation tool with advanced natural language processing",
-      mainImage: "/ai-chat-interface.png",
+      title: "Event Management and Ticketing System",
+      description: "Comprehensive event management platform with ticketing, analytics, and revenue tracking",
+      mainImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/event1-sRboVu6zAEFaXhUYtkBPDm6kNQDSQP.png",
       images: [
-        "/ai-chat-interface.png",
-        "/ai-chat-application-dashboard.png",
-        "/ai-chat-application-mobile-view.png",
-        "/ai-chat-application-settings.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/event1-sRboVu6zAEFaXhUYtkBPDm6kNQDSQP.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/event2-qpRq7JdF5nhdssLAq4sBLasodlKRsX.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/event3-yCBM68d55IY2igHJkMjrL0fQdmVLgV.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/event4-4ODa3zpaMy5Z8akTHNClDmrt0RyAll.png",
       ],
-      technologies: "React, Next.js, OpenAI API, Context Engineering",
-      link: "#",
+      technologies: "React, Next.js, Node.js, PostgreSQL, Stripe API",
+      link: "https://eventify.dablietech.club/",
+    },
+    {
+      title: "Startup Innovation",
+      description: "Connect with revolutionary startups, talented entrepreneurs, and visionary investors",
+      mainImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/profi-amrfe6AFfIIrKrkfXS95e5yOQYx9Wm.png",
+      images: [
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/profi-amrfe6AFfIIrKrkfXS95e5yOQYx9Wm.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/profi2-bQ3uLUFfNtF0GWAp27GIj5WE96y8hm.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/profi3-DrByTn6GDIuNQmrxUZLggOpXVxf2lj.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/profi4-83J5UeOTu8BmINDTAoidiswWe30QSd.png",
+      ],
+      technologies: "React, Next.js, AI Integration, PostgreSQL",
+      link: "https://dablietechstartup.vercel.app/",
+    },
+    {
+      title: "Dynamic Websites",
+      description: "Professional IT solutions and services website for enterprise clients",
+      mainImage:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/baselineprofi1-bdgeAM6H2MCMgNYX9TJA3kFf1iEala.png",
+      images: [
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/baselineprofi1-bdgeAM6H2MCMgNYX9TJA3kFf1iEala.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/baselineprofi2-QwPNvKexKMkvegofdrjkETwJASWc0x.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/baselineprof3-GfYK8QwguRL9ekablmHZfSJqt0cjej.png",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/baselinprof-Zbb2vnSlHCrGaqID0ncwpzqIewN1XE.png",
+      ],
+      technologies: "HTML, CSS, JavaScript, PHP, MySQL",
+      link: "https://www.baselineplc.com/",
     },
     {
       title: "GOJO",
@@ -109,6 +136,17 @@ export function ProjectsSection() {
                 </div>
                 <h4 className="text-white text-xl font-semibold mb-2">{project.title}</h4>
                 <p className="text-slate-400 text-sm mb-3 line-clamp-2">{project.description}</p>
+                {project.link && project.link !== "#" && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 text-sm underline"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {project.link}
+                  </a>
+                )}
               </div>
             ))}
             {/* Duplicate set for seamless loop */}
@@ -127,6 +165,17 @@ export function ProjectsSection() {
                 </div>
                 <h4 className="text-white text-xl font-semibold mb-2">{project.title}</h4>
                 <p className="text-slate-400 text-sm mb-3 line-clamp-2">{project.description}</p>
+                {project.link && project.link !== "#" && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 text-sm underline"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {project.link}
+                  </a>
+                )}
               </div>
             ))}
           </div>

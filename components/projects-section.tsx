@@ -91,58 +91,6 @@ export function ProjectsSection() {
       technologies: "HTML, CSS, JavaScript, PHP, MySQL",
       link: "https://ihlasyurt.vercel.app/",
     },
-    {
-      title: "GOJO",
-      description: "Booking and Accommodation System",
-      mainImage: "/ecommerce-platform-homepage.png",
-      images: [
-        "/ecommerce-platform-homepage.png",
-        "/ecommerce-product-catalog.png",
-        "/ecommerce-shopping-cart.png",
-        "/ecommerce-checkout-process.png",
-      ],
-      technologies: "React, Node.js, MongoDB, Stripe API",
-      link: "#",
-    },
-    {
-      title: "Movie Chief",
-      description: "Movie and TV Shows Trailers and Information Site",
-      mainImage: "/data-analytics-dashboard.png",
-      images: [
-        "/data-analytics-dashboard.png",
-        "/data-analytics-charts.png",
-        "/data-analytics-reports.png",
-        "/data-analytics-settings.png",
-      ],
-      technologies: "Python, Django, PostgreSQL, Movie API",
-      link: "#",
-    },
-    {
-      title: "E-commerce",
-      description: "Ecommerce Solution for Wholesalers and Retailers",
-      mainImage: "/ml-model-trainer-interface.png",
-      images: [
-        "/ml-model-trainer-interface.png",
-        "/ml-model-trainer-dashboard.png",
-        "/ml-model-trainer-results.png",
-        "/ml-model-trainer-settings.png",
-      ],
-      technologies: "React, Next.js, Stripe, PostgreSQL",
-      link: "#",
-    },
-    {
-      title: "Notes",
-      description: "Note Taking Application",
-      mainImage: "/task-management-dashboard.png",
-      images: [
-        "/task-management-dashboard.png",
-        "/task-management-kanban.png",
-        "/task-management-calendar.png",
-        "/task-management-mobile.png",
-      ],
-      technologies: "React Native, Node.js, MongoDB",
-      link: "#",
-    },
   ]
 
   useEffect(() => {

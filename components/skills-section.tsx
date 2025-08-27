@@ -4,7 +4,7 @@ export function SkillsSection() {
       title: "Frontend Frameworks",
       color: "text-blue-400",
       dotColor: "bg-blue-400",
-      skills: ["React", "Next.js", "HTML", "CSS"],
+      skills: ["React", "Next.js", "HTML", "CSS", "TypeScript", "Tailwind"],
     },
     {
       title: "Programming Languages",
@@ -29,6 +29,20 @@ export function SkillsSection() {
       color: "text-cyan-400",
       dotColor: "bg-cyan-400",
       skills: ["Git", "GitHub"],
+    },
+    {
+      title: "Security & Continuity Concepts",
+      color: "text-pink-400",
+      dotColor: "bg-pink-400",
+      skills: [
+        "Access Controls Concepts",
+        "Business Continuity (BC) Concepts",
+        "Disaster Recovery (DR) Concepts",
+        "Incident Response Concepts",
+        "Network Security",
+        "Security Operations",
+        "Security Principles"
+      ],
     },
   ]
 

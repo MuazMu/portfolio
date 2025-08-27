@@ -16,7 +16,7 @@ export function HeroSection() {
             </h1>
             <p className="text-slate-300 text-base sm:text-lg mb-6 lg:mb-8 max-w-md mx-auto lg:mx-0 leading-relaxed">
               I'm a software engineer specializing in full-stack development with JavaScript, React, and Next.js. I also
-              work with Python, C++, and focus on AI prompt engineering and context engineering.
+              work with Python, C++, and focus on Cybersecurity and AI prompt engineering and context engineering.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
               <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 w-full sm:w-auto">

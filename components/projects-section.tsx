@@ -21,7 +21,7 @@ export function ProjectsSection() {
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/event4-4ODa3zpaMy5Z8akTHNClDmrt0RyAll.png",
       ],
       technologies: "React, Next.js, Node.js, PostgreSQL, Stripe API",
-      link: "https://eventify.dablietech.club/",
+      link: "https://www.afri.events/",
     },
     {
       title: "Startup Innovation",

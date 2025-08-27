@@ -15,7 +15,7 @@ export function AboutSection() {
               </p>
             </div>
             <div className="w-16 h-16 md:w-16 md:h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto md:mx-0 flex-shrink-0">
-              <span className="text-2xl">👨‍💻</span>
+              <img src="/profile.jpg" alt="Profile picture" className="w-full h-full object-cover rounded-full" />
             </div>
           </div>
         </div>

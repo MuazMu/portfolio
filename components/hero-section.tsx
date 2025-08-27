@@ -28,6 +28,14 @@ export function HeroSection() {
               >
                 Start Project
               </Button>
+              <a
+                href="https://www.linkedin.com/in/muaz-abdulkhafur"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-2 w-full sm:w-auto border border-blue-500 text-blue-400 rounded-lg hover:bg-blue-500 hover:text-white transition-colors duration-200 text-center mt-2 sm:mt-0"
+              >
+                LinkedIn
+              </a>
             </div>
           </div>
           <div className="relative order-1 lg:order-2 flex-shrink-0">

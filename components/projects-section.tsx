@@ -75,7 +75,7 @@ export function ProjectsSection() {
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nexapro4-IpiTqAQccZl2eycYnHuYWErsHZANIf.png",
       ],
       technologies: "React, Next.js, Node.js, PostgreSQL, Lead APIs",
-      link: "https://nexa-leads.vercel.app/",
+      //link: "https://nexa-leads.vercel.app/",
     },
     {
       title: "İhlas Dormitory Website",

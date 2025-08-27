@@ -9,7 +9,7 @@ export function AboutSection() {
               <p className="text-slate-300 leading-relaxed text-base md:text-lg">
                 Muaz Abdulkahfur is a passionate software engineer and full-stack developer with expertise in modern web
                 technologies. I specialize in JavaScript, React, and Next.js for frontend development, while also
-                working with Python and C++ for backend solutions. My current focus includes AI engineering,
+                working with Python and C++ for backend solutions. My current focus includes Cybersecurity and AI engineering,
                 specifically context engineering and prompt engineering, combining traditional programming skills with
                 cutting-edge AI technologies to build innovative solutions.
               </p>

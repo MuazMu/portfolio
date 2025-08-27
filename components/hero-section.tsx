@@ -34,7 +34,7 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-3xl opacity-30 scale-150"></div>
             <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden mx-auto">
               <Image
-                src="/professional-headshot-of-a-young-man-with-dark-hai.png"
+                src="/profile.jpg"
                 alt="Muaz Abdulkahfur"
                 width={320}
                 height={320}

@@ -10,13 +10,13 @@ export function SkillsSection() {
       title: "Programming Languages",
       color: "text-purple-400",
       dotColor: "bg-purple-400",
-      skills: ["JavaScript", "Python", "C++", "C", "PHP"],
+      skills: ["JavaScript", "Python", "C++", "C", "PHP", "Regex"],
     },
     {
       title: "System & DevOps",
       color: "text-green-400",
       dotColor: "bg-green-400",
-      skills: ["Linux", "Docker"],
+      skills: ["Linux", "Docker", "System Hardening (Junior)"],
     },
     {
       title: "AI & Engineering",

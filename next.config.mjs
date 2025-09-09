@@ -9,20 +9,25 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Force HTTPS redirect
-  async redirects() {
+  // Ensure proper SSL handling
+  async headers() {
     return [
       {
         source: '/(.*)',
-        has: [
+        headers: [
           {
-            type: 'header',
-            key: 'x-forwarded-proto',
-            value: 'http',
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
           },
         ],
-        destination: 'https://portfolio-three-beta-7x5v1nynf8.vercel.app/:path*',
-        permanent: true,
       },
     ]
   }

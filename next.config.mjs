@@ -9,17 +9,21 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  async headers() {
+  // Force HTTPS redirect
+  async redirects() {
     return [
       {
         source: '/(.*)',
-        headers: [
+        has: [
           {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=31536000; includeSubDomains; preload'
-          }
-        ]
-      }
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
+          },
+        ],
+        destination: 'https://portfolio-three-beta-7x5v1nynf8.vercel.app/:path*',
+        permanent: true,
+      },
     ]
   }
 }

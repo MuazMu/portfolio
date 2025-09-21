@@ -2,30 +2,14 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-  // Clone the request headers
-  const requestHeaders = new Headers(request.headers)
-  
-  // Create response
-  const response = NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  })
+  // Create a simple response with basic security headers
+  const response = NextResponse.next()
 
-  // Add security headers
-  response.headers.set('X-DNS-Prefetch-Control', 'on')
+  // Add basic security headers
   response.headers.set('X-Content-Type-Options', 'nosniff')
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
   response.headers.set('X-Frame-Options', 'SAMEORIGIN')
+  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
   
-  // Handle SSL protocol
-  const protocol = request.headers.get('x-forwarded-proto')
-  const host = request.headers.get('host')
-  
-  if (protocol === 'http' && host?.includes('vercel.app')) {
-    return NextResponse.redirect(`https://${host}${request.nextUrl.pathname}`, 301)
-  }
-
   return response
 }
 

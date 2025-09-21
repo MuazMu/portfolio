@@ -9,7 +9,6 @@
       "maxDuration": 30
     }
   },
-  "regions": ["iad1"],
   "headers": [
     {
       "source": "/(.*)",
@@ -31,12 +30,6 @@
           "value": "strict-origin-when-cross-origin"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
     }
   ]
 }

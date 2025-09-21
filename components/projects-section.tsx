@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { ProjectModal } from "./project-modal"
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react"
 
@@ -194,10 +195,13 @@ export function ProjectsSection() {
                   onClick={() => openProjectModal(project)}
                 >
                   <div className="aspect-video mb-4 rounded-lg overflow-hidden">
-                    <img
+                    <Image
                       src={project.mainImage || "/placeholder.svg"}
                       alt={project.title}
+                      width={320}
+                      height={180}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      unoptimized
                     />
                   </div>
                   <h4 className="text-white text-xl font-semibold mb-2">{project.title}</h4>
@@ -222,10 +226,13 @@ export function ProjectsSection() {
                   onClick={() => openProjectModal(project)}
                 >
                   <div className="aspect-video mb-4 rounded-lg overflow-hidden">
-                    <img
+                    <Image
                       src={project.mainImage || "/placeholder.svg"}
                       alt={project.title}
+                      width={320}
+                      height={180}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      unoptimized
                     />
                   </div>
                   <h4 className="text-white text-xl font-semibold mb-2">{project.title}</h4>

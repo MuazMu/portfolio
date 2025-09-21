@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { useEffect, useState } from "react"
 
@@ -75,10 +76,13 @@ export function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
 
           {/* Image Gallery */}
           <div className="relative">
-            <img
+            <Image
               src={project.images[currentImageIndex] || "/placeholder.svg?height=400&width=600"}
               alt={`${project.title} - Image ${currentImageIndex + 1}`}
+              width={600}
+              height={400}
               className="w-full h-96 object-cover rounded-lg"
+              unoptimized
             />
 
             {/* Navigation Arrows */}

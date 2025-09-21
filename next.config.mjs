@@ -8,13 +8,6 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
-    domains: ['hebbkx1anhila5yf.public.blob.vercel-storage.com'],
-  },
-  // Simple configuration for stable deployment
-  experimental: {
-    serverActions: {
-      allowedOrigins: ['localhost:3000', '*.vercel.app']
-    }
   }
 }
 

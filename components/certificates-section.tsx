@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Card } from "@/components/ui/card"
 import { useState } from "react"
 
@@ -46,10 +47,13 @@ export function CertificatesSection() {
                 onClick={() => setSelectedCertificate(cert.image)}
               >
                 <div className="aspect-[4/3] mb-4 overflow-hidden rounded-lg">
-                  <img
+                  <Image
                     src={cert.image || "/placeholder.svg"}
                     alt={cert.title}
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    unoptimized
                   />
                 </div>
                 <h4 className="text-white font-medium mb-1 text-sm">{cert.title}</h4>
@@ -74,10 +78,13 @@ export function CertificatesSection() {
             >
               ×
             </button>
-            <img
+            <Image
               src={selectedCertificate || "/placeholder.svg"}
               alt="Certificate"
+              width={800}
+              height={600}
               className="w-full h-full object-contain"
+              unoptimized
             />
           </div>
         </div>

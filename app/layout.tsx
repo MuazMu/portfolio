@@ -7,11 +7,9 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Muaz Abdulkhafur - Portfolio",
   description: "Software engineer specializing in Full-Stack Development and Cybersecurity",
-  metadataBase: new URL('https://portfolio-muazmus-projects.vercel.app'),
   openGraph: {
     title: "Muaz Abdulkhafur - Portfolio",
     description: "Software engineer specializing in Full-Stack Development and Cybersecurity",
-    url: 'https://portfolio-muazmus-projects.vercel.app',
     siteName: 'Muaz Abdulkhafur Portfolio',
     type: 'website',
   },

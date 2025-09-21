@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { X } from "lucide-react"
 import { useEffect } from "react"
 
@@ -45,10 +46,13 @@ export function ImageModal({ isOpen, onClose, imageSrc, imageAlt }: ImageModalPr
           <X size={20} />
         </button>
 
-        <img
+        <Image
           src={imageSrc || "/placeholder.svg"}
           alt={imageAlt}
+          width={800}
+          height={600}
           className="max-w-full max-h-full object-contain rounded-lg"
+          unoptimized
         />
       </div>
     </div>

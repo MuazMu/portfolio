@@ -13,7 +13,7 @@ const nextConfig = {
   // Simple configuration for stable deployment
   experimental: {
     serverActions: {
-      allowedOrigins: ['localhost:3000', 'portfolio-muazmus-projects.vercel.app']
+      allowedOrigins: ['localhost:3000', '*.vercel.app']
     }
   }
 }

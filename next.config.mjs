@@ -9,6 +9,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Output configuration for better deployment
+  output: 'standalone',
   // Ensure proper SSL handling
   async headers() {
     return [
@@ -27,7 +29,28 @@ const nextConfig = {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
           },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains',
+          },
         ],
+      },
+    ]
+  },
+  // Handle redirects for HTTPS
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
+          },
+        ],
+        destination: 'https://portfolio-muazmus-projects.vercel.app/:path*',
+        permanent: true,
       },
     ]
   }
